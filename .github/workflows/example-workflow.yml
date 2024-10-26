@@ -1,9 +1,0 @@
-name: example-workflow
-on: push
-jobs:
-  example:
-    runs-on: ubuntu-latest
-    steps:
-    - name: initial-step
-      run: echo Hello, world!
-    
