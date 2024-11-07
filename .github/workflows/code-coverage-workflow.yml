@@ -1,16 +1,25 @@
-name: Workflow for Codecov example-javascript
-on: [push, pull_request]
+name: Continuous Integration Pipeline
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  checks: write
+  statuses: write
+
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Set up Node 18
+      - name: Set up Node 21
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 21
 
       - name: Install dependencies
         run: yarn
@@ -18,5 +27,11 @@ jobs:
       - name: Run tests and collect coverage
         run: npm run test
 
-      - name: Upload coverage to Codecov
+      - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/**/lcov.info
+          flags: unittests
+          fail_ci_if_error: true
+          verbose: true
