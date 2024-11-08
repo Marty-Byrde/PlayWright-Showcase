@@ -59,7 +59,7 @@ export default [
       //? Requires the type declaration for buttons, to avoid type submit on buttons outside of forms
       'react/button-has-type': 'error',
 
-      'filename-rules/match': [2, { '.ts': 'camelcase', '.js': 'camelcase', '.tsx': 'pascalcase', '.jsx': 'pascalcase' }],
+      // 'filename-rules/match': [2, { '.ts': 'camelcase', '.js': 'camelcase', '.tsx': 'pascalcase', '.jsx': 'pascalcase' }],
 
       //? Specifies naming conventions inside react components
       '@typescript-eslint/naming-convention': [
