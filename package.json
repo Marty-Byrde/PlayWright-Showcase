@@ -6,7 +6,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "playwright:test": "playwright test",
     "prepare": "husky install",
     "jest:test": "jest --coverage",
     "test": "playwright test",
