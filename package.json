@@ -1,5 +1,5 @@
 {
-  "name": "react-frontend",
+  "name": "power-plant-frontend",
   "version": "0.1.0",
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
