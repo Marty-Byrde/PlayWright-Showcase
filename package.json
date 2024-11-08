@@ -1,6 +1,19 @@
 {
   "name": "power-plant-frontend",
   "version": "0.1.0",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "playwright:test": "playwright test",
+    "prepare": "husky install",
+    "jest:test": "jest --coverage",
+    "test": "playwright test",
+    "test:clean": "rimraf .v8-coverage",
+    "test:start": "cross-env NODE_V8_COVERAGE=.v8-coverage NODE_OPTIONS=--inspect=9229 next dev",
+    "test:command": "npm run test:clean && npm run test:start"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
@@ -12,25 +25,6 @@
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "jest:test": "jest --coverage",
-    "test": "playwright test",
-    "playwright:test": "playwright test",
-    "prepare": "husky install",
-    "test:clean": "rimraf .v8-coverage",
-    "test:start": "cross-env NODE_V8_COVERAGE=.v8-coverage NODE_OPTIONS=--inspect=9229 next dev",
-    "test:command": "npm run test:clean && npm run test:start"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "devDependencies": {
     "@bgotink/playwright-coverage": "^0.2.2",
@@ -63,6 +57,12 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "husky": {
     "hooks": {
