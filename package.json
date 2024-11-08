@@ -16,7 +16,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage",
+    "jest:test": "jest --coverage",
+    "test": "playwright test",
     "playwright:test": "playwright test",
     "prepare": "husky install"
   },
