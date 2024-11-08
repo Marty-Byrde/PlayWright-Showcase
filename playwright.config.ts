@@ -43,7 +43,7 @@ export default defineConfig({
   // If a test fails, retry it additional 2 times
   retries: 2,
   // Artifacts folder where screenshots, videos, and traces are stored.
-  outputDir: 'playwright-test-artifacts/',
+  outputDir: 'tests/playwright-test-artifacts/',
 
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests

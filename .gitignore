@@ -47,4 +47,4 @@ node_modules/
 /coverage-playwright
 /monocart-report
 /.v8-coverage
-/playwright-test-artifacts
+tests/playwright-test-artifacts
