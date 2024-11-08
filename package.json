@@ -17,7 +17,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --coverage",
-    "playwright:test": "yarn playwright test",
+    "playwright:test": "playwright test",
     "prepare": "husky install"
   },
   "eslintConfig": {
