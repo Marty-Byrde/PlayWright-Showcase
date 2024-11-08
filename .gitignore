@@ -41,10 +41,6 @@ next-env.d.ts
 node_modules/
 
 
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-/coverage-playwright
-/monocart-report
+/playwright-coverage
 /.v8-coverage
-/playwright-test-artifacts
+tests/playwright-test-artifacts

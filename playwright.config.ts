@@ -2,9 +2,12 @@ import { defineConfig, devices } from '@playwright/test'
 
 import { CoverageReportOptions } from 'monocart-reporter'
 
+const outputDir = 'playwright-coverage'
+
 const coverageReportOptions: CoverageReportOptions = {
   // logging: 'debug',
   name: 'Next.js Coverage Report',
+  outputDir: `${outputDir}/coverage`,
 
   entryFilter: (entry) => {
     // both client side and server side
@@ -43,7 +46,7 @@ export default defineConfig({
   // If a test fails, retry it additional 2 times
   retries: 2,
   // Artifacts folder where screenshots, videos, and traces are stored.
-  outputDir: 'playwright-test-artifacts/',
+  outputDir: 'tests/playwright-test-artifacts/',
 
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
@@ -64,6 +67,7 @@ export default defineConfig({
       'monocart-reporter',
       {
         coverage: coverageReportOptions,
+        outputFile: `${outputDir}/index.html`,
       },
     ],
   ],
