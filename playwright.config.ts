@@ -2,9 +2,12 @@ import { defineConfig, devices } from '@playwright/test'
 
 import { CoverageReportOptions } from 'monocart-reporter'
 
+const outputDir = 'playwright-coverage'
+
 const coverageReportOptions: CoverageReportOptions = {
   // logging: 'debug',
   name: 'Next.js Coverage Report',
+  outputDir: `${outputDir}/coverage`,
 
   entryFilter: (entry) => {
     // both client side and server side
@@ -64,6 +67,7 @@ export default defineConfig({
       'monocart-reporter',
       {
         coverage: coverageReportOptions,
+        outputFile: `${outputDir}/index.html`,
       },
     ],
   ],
