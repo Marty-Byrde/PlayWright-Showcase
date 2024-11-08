@@ -39,7 +39,7 @@ export default defineConfig({
   // Timeout per test
   timeout: 30 * 1000,
   // Test directory
-  testDir: './playwright',
+  testDir: './tests/playwright',
   // If a test fails, retry it additional 2 times
   retries: 2,
   // Artifacts folder where screenshots, videos, and traces are stored.
