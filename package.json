@@ -27,6 +27,7 @@
     ]
   },
   "devDependencies": {
+    "@bgotink/playwright-coverage": "^0.2.2",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/compat": "^1.2.2",
