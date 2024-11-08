@@ -17,7 +17,7 @@ const compat = new FlatCompat({
 })
 
 export default [
-  ...fixupConfigRules(compat.extends('eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended')),
+  ...fixupConfigRules(compat.extends('eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', "next/core-web-vitals", "next/typescript")),
   {
     plugins: {
       'react': fixupPluginRules(react),
@@ -52,12 +52,12 @@ export default [
       "react/jsx-max-depth": ["error", { "max": 5 }],
 
       //? one component per file
-      "react/no-multi-comp": ["warn", "always"],
+      "react/no-multi-comp": ["warn"],
 
       //? Requires the type declaration for buttons, to avoid type submit on buttons outside of forms
       'react/button-has-type': 'error',
 
-      'filename-rules/match': [2, { '.ts': 'camelcase', '.js': 'camelcase', '.tsx': 'pascalcase', '.jsx': 'pascalcase' }],
+      // 'filename-rules/match': [2, { '.ts': 'camelcase', '.js': 'camelcase', '.tsx': 'pascalcase', '.jsx': 'pascalcase' }],
 
       //? Specifies naming conventions inside react components
       '@typescript-eslint/naming-convention': [
