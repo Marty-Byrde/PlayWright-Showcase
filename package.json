@@ -5,6 +5,8 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3",
+    "monocart-reporter": "^2.9.9",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
@@ -16,8 +18,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --coverage",
-    "prepare": "husky install"
+    "jest:test": "jest --coverage",
+    "test": "playwright test",
+    "playwright:test": "playwright test",
+    "prepare": "husky install",
+    "test:clean": "rimraf .v8-coverage",
+    "test:start": "cross-env NODE_V8_COVERAGE=.v8-coverage NODE_OPTIONS=--inspect=9229 next dev",
+    "test:command": "npm run test:clean && npm run test:start"
   },
   "eslintConfig": {
     "extends": [
@@ -26,11 +33,13 @@
     ]
   },
   "devDependencies": {
+    "@bgotink/playwright-coverage": "^0.2.2",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@eslint/compat": "^1.2.2",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.14.0",
+    "@playwright/test": "^1.48.2",
     "@testing-library/dom": "^10.4.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
