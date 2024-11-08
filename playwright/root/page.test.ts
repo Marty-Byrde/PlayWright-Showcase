@@ -1,4 +1,4 @@
-import { expect, test } from '@bgotink/playwright-coverage'
+import { expect, test } from './fixtures'
 
 test('Root Page has heading', async ({ page }) => {
   await page.goto('http://localhost:3000/')
