@@ -56,6 +56,10 @@ const globalTeardown = async (config) => {
     }
     await addCoverageReport(coverageList, mockTestInfo)
   }
+
+  //* remove .v8-coverage directory
+  console.log('globalTeardown: Removing .v8-coverage directory')
+  fs.rm('.v8-coverage', { recursive: true }, (err) => {})
 }
 
 export default globalTeardown
