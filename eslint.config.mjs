@@ -7,6 +7,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
+import filenameRules from 'eslint-plugin-filename-rules'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -23,6 +24,7 @@ export default [
       'react': fixupPluginRules(react),
       'react-hooks': fixupPluginRules(reactHooks),
       prettier,
+      'filename-rules': fixupPluginRules(filenameRules),
     },
 
     languageOptions: {
@@ -57,7 +59,7 @@ export default [
       //? Requires the type declaration for buttons, to avoid type submit on buttons outside of forms
       'react/button-has-type': 'error',
 
-      // 'filename-rules/match': [2, { '.ts': 'camelcase', '.js': 'camelcase', '.tsx': 'pascalcase', '.jsx': 'pascalcase' }],
+      'filename-rules/match': [2, { '.ts': 'camelcase', '.js': 'camelcase', '.tsx': 'pascalcase', '.jsx': 'pascalcase' }],
 
       //? Specifies naming conventions inside react components
       '@typescript-eslint/naming-convention': [
