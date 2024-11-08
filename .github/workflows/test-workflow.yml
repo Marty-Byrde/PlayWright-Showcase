@@ -16,5 +16,11 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Build Project
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
+      - name: Run Playwright Tests
         run: npm run test
+
+      - name: Run Jest Tests
+        run: npm run jest:test
