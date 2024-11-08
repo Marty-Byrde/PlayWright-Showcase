@@ -4,7 +4,7 @@ import { CoverageReportOptions } from 'monocart-reporter'
 
 const coverageReportOptions: CoverageReportOptions = {
   // logging: 'debug',
-  name: 'Next.js V8 Coverage Report',
+  name: 'Next.js Coverage Report',
 
   entryFilter: (entry) => {
     // both client side and server side
@@ -25,7 +25,7 @@ const coverageReportOptions: CoverageReportOptions = {
     return fileSource
   },
 
-  reports: ['v8', 'console-details'],
+  reports: ['lcov', 'console-details'],
 }
 
 // Use process.env.PORT by default and fallback to port 3000
