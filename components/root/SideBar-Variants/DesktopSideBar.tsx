@@ -4,6 +4,7 @@ import { DesktopSideBarVisibilityBreakpoints } from '@/config/SideBarConfig'
 import PowerIcon from '@/icons/PowerIcon'
 import React from 'react'
 import { RenderSideBarItems } from '@/components/root/SideBar'
+import Link from 'next/link'
 
 export default function DesktopSideBar(props: SideBarProps) {
   return (
@@ -17,7 +18,11 @@ export default function DesktopSideBar(props: SideBarProps) {
         <RenderSideBarItems items={props.items} />
       </div>
 
-      <div className='pt-3 mx-auto'>Sidebar Footer</div>
+      <Link href={'/auth/login'} className='pt-3 mx-auto pb-2 flex w-full px-2'>
+        <button className='p-2 dark:bg-neutral-700 w-full rounded-md' type='button'>
+          Sign Up
+        </button>
+      </Link>
     </div>
   )
 }
