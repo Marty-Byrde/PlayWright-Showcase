@@ -28,7 +28,7 @@ function MobileSideBar(props: SideBarProps) {
 
 function DesktopSideBar(props: SideBarProps) {
   return (
-    <div className={twMerge('fixed w-[350px] dark:bg-neutral-900 bg-gray-50 h-full flex-col p-3 pl-2', DesktopSideBarVisibilityBreakpoints)}>
+    <div className={twMerge('fixed dark:bg-neutral-900 bg-gray-50 h-full flex-col p-3 pl-2', DesktopSideBarVisibilityBreakpoints)}>
       <div id={'sidebar-header'} className='flex gap-4 items-center justify-center pb-3 border-b-2'>
         <PowerIcon />
         <h3 className='text-2xl'>{props.title}</h3>

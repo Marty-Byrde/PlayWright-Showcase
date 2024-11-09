@@ -17,6 +17,8 @@ export const SideBarConfiguration: SideBarProps = {
   ],
 }
 
-export const DesktopSideBarVisibilityBreakpoints = 'hidden md:flex'
+export const DesktopSideBarVisibilityBreakpoints = 'hidden md:flex w-[350px]'
 
 export const MobileSideBarVisibilityBreakpoints = 'flex md:hidden'
+
+export const MainContentShiftBreakpoints = 'md:ml-[350px]'
