@@ -41,6 +41,7 @@ next-env.d.ts
 node_modules/
 
 
+/monocart-report
 /playwright-coverage
 /.v8-coverage
 tests/playwright-test-artifacts
