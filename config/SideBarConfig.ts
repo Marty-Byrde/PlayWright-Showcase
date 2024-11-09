@@ -2,17 +2,17 @@ import SideBarProps from '@/typings/root/SideBarProps'
 
 export const SideBarConfiguration: SideBarProps = {
   title: 'Power Plant Operations',
-  icon: 'icon',
+  icon: 'PowerIcon',
   items: [
     {
-      title: 'Item 1',
+      title: 'Dashboard',
       href: '/item1',
-      icon: 'icon',
+      icon: 'ChartBarIcon',
     },
     {
-      title: 'Item 2',
+      title: 'Control Room',
       href: '/item2',
-      icon: 'icon',
+      icon: 'WrenchScrewdriverIcon',
     },
   ],
 }
