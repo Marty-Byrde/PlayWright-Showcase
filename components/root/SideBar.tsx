@@ -28,13 +28,13 @@ function MobileSideBar(props: SideBarProps) {
 
 function DesktopSideBar(props: SideBarProps) {
   return (
-    <div className={twMerge('fixed dark:bg-neutral-900 bg-gray-50 h-full flex-col p-3 pl-2', DesktopSideBarVisibilityBreakpoints)}>
-      <div id={'sidebar-header'} className='flex gap-4 items-center justify-center pb-3 border-b-2'>
+    <div className={twMerge('fixed dark:bg-neutral-900/50 bg-gray-200 h-full flex-col p-3 pl-2', DesktopSideBarVisibilityBreakpoints)}>
+      <div id={'sidebar-header'} className='flex gap-4 items-center pl-6 pb-3 border-b-2 dark:border-neutral-300 border-gray-600'>
         <PowerIcon />
-        <h3 className='text-2xl'>{props.title}</h3>
+        <h3 className='text-xl dark:text-gray-300 text-gray-700'>{props.title}</h3>
       </div>
 
-      <div className='h-full bg-gray-800'>Sidebar Body</div>
+      <div className='h-full dark:text-gray-300/90 text-gray-600'>SideBar Body</div>
 
       <div className='pt-3 mx-auto'>Sidebar Footer</div>
     </div>
