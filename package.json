@@ -11,7 +11,8 @@
     "test": "playwright test",
     "test:clean": "rimraf .v8-coverage",
     "test:start": "cross-env NODE_V8_COVERAGE=.v8-coverage NODE_OPTIONS=--inspect=9229 next dev",
-    "test:command": "npm run test:clean && npm run test:start"
+    "test:command": "npm run test:clean && npm run test:start",
+    "testAll": "npm run test && npm run jest:test"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^6.6.3",
