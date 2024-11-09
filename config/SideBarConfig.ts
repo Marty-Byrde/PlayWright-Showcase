@@ -7,7 +7,24 @@ export const SideBarConfiguration: SideBarProps = {
     {
       title: 'Dashboard',
       href: '/item1',
-      icon: 'ChartBarIcon',
+      icon: 'ChartPieIcon',
+      items: [
+        {
+          title: 'Power Consumption',
+          href: '/subitem1',
+          icon: 'PowerIcon',
+        },
+        {
+          title: 'RPM History',
+          href: '/subitem1',
+          icon: 'LifebuoyIcon',
+        },
+        {
+          title: 'Weather Data',
+          href: '/subitem1',
+          icon: 'SparklesIcon',
+        },
+      ],
     },
     {
       title: 'Control Room',
