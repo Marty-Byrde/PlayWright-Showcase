@@ -1,17 +1,9 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import './globals.css'
-
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
-})
+import SideBar from '@/components/root/SideBar'
+import { twMerge } from 'tailwind-merge'
+import { MainContentShiftBreakpoints } from '@/config/SideBarConfig'
+import React from 'react'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -25,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body className={`bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-200`}>
+        <SideBar />
+        <div className={twMerge('p-4', MainContentShiftBreakpoints)}>{children}</div>
+      </body>
     </html>
   )
 }
