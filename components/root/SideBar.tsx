@@ -2,11 +2,12 @@ import React from 'react'
 import SideBarProps from '@/typings/root/SideBarProps'
 import PowerIcon from '@/icons/PowerIcon'
 import { twMerge } from 'tailwind-merge'
-import { DesktopSideBarVisibilityBreakpoints, MobileSideBarVisibilityBreakpoints, SideBarConfiguration } from '@/config/SideBarConfig'
+import { MobileSideBarVisibilityBreakpoints, SideBarConfiguration } from '@/config/SideBarConfig'
+import DesktopSideBar from '@/components/root/SideBar-Variants/DesktopSideBar'
 import { randomUUID } from 'node:crypto'
 import SideBarItemProps from '@/typings/root/SideBarItemProps'
-import { HeroIconName } from '@/typings/icons/HeroIcons'
 import useHeroIcon from '@/hooks/useHeroIcon'
+import { HeroIconName } from '@/typings/icons/HeroIcons'
 import Link from 'next/link'
 
 export default async function SideBar() {
@@ -31,29 +32,12 @@ function MobileSideBar(props: SideBarProps) {
   )
 }
 
-function DesktopSideBar(props: SideBarProps) {
-  return (
-    <div className={twMerge('fixed dark:bg-neutral-900/50 bg-gray-200 h-full flex-col p-3 pl-2', DesktopSideBarVisibilityBreakpoints)}>
-      <div id={'sidebar-header'} className='flex gap-4 items-center pl-6 pb-3 border-b-2 dark:border-neutral-300 border-gray-600'>
-        <PowerIcon />
-        <h3 className='text-xl dark:text-gray-300 text-gray-700'>{props.title}</h3>
-      </div>
-
-      <div className='h-full dark:text-gray-300/90 text-gray-600 py-4'>
-        <RenderSideBarItems items={props.items} />
-      </div>
-
-      <div className='pt-3 mx-auto'>Sidebar Footer</div>
-    </div>
-  )
-}
-
 /**
  * Renders a set of SideBarItems. This component may be used recursively to render subitems of an item.
  * @param items The items to render
  * @param className Additional classes to apply to the container, e.g. to reduce spacing between subitems or indentation
  */
-function RenderSideBarItems({ items, className }: { items: SideBarProps['items']; className?: string }) {
+export function RenderSideBarItems({ items, className }: { items: SideBarProps['items']; className?: string }) {
   return (
     <ul className={twMerge('pl-2 flex flex-col gap-3', className)}>
       {items.map((item, index) => (
