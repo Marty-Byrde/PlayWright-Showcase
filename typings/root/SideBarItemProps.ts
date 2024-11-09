@@ -4,4 +4,5 @@ export default interface SideBarItemProps {
   title: string
   href: string
   icon: HeroIconName
+  items?: Array<SideBarItemProps>
 }
