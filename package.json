@@ -15,6 +15,7 @@
     "testAll": "npm run test && npm run jest:test"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^13.5.0",
