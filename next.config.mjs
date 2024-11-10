@@ -1,7 +1,7 @@
 const nextConfig = {
   /* config options here */
-  webpack: (config) => {
-    if (process.env.NODE_V8_COVERAGE) {
+  webpack: (config, options) => {
+    if(process.env.NODE_V8_COVERAGE && options.isServer) {
       Object.defineProperty(config, 'devtool', {
         get() {
           return 'source-map'
