@@ -26,6 +26,7 @@ jobs:
         run: npm run jest:test
 
       - name: Upload Coverage to Codecov
+        if: ${{ !env.ACT }} # Do not run locally
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
