@@ -24,17 +24,14 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Install Playwright Browsers
-        run: npx playwright install
-
-      - name: Run tests and collect coverage
-        run: npm run test
+      - name: Run Jest Tests and Collect Coverage
+        run: npm run jest:test
 
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-#          files: /coverage/**/lcov.info
+          files: /coverage/**/lcov.info
 #          flags: unittests
           fail_ci_if_error: true
           verbose: true
