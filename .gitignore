@@ -45,3 +45,6 @@ node_modules/
 /playwright-coverage
 /.v8-coverage
 tests/playwright-test-artifacts
+
+
+.actrc
