@@ -13,8 +13,7 @@ jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
     env:
-      IMAGE_NAME: ${{ github.event.repository.name }}
-      IMAGE_URI: ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
+      IMAGE_URI: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}
 
     steps:
       - name: Checkout code
