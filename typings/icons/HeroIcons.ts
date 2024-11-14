@@ -4,5 +4,5 @@ export type HeroIconName = keyof typeof heroicons_outline
 
 export interface HeroIconProps {
   iconName: HeroIconName
-  type?: 'outline'
+  type?: 'outline' | 'solid'
 }
