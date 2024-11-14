@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 import js from '@eslint/js'
 import { FlatCompat } from '@eslint/eslintrc'
 import filenameRules from 'eslint-plugin-filename-rules'
+import '@next/eslint-plugin-next'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -18,7 +19,7 @@ const compat = new FlatCompat({
 })
 
 export default [
-  ...fixupConfigRules(compat.extends('eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', "next/core-web-vitals", "next/typescript")),
+  ...fixupConfigRules(compat.extends('eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', "next/core-web-vitals", "next/typescript", "next")),
   {
     plugins: {
       'react': fixupPluginRules(react),
