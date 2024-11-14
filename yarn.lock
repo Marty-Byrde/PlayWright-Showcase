@@ -1974,7 +1974,7 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-14.2.17.tgz#bcb2c84fca50a38ec5b492d1029b8f41b0900594"
   integrity sha512-MCgO7VHxXo8sYR/0z+sk9fGyJJU636JyRmkjc7ZJY8Hurl8df35qG5hoAh5KMs75FLjhlEo9bb2LGe89Y/scDA==
 
-"@next/eslint-plugin-next@15.0.3":
+"@next/eslint-plugin-next@15.0.3", "@next/eslint-plugin-next@^15.0.3":
   version "15.0.3"
   resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-15.0.3.tgz#ce953098036d462f6901e423cc6445fc165b78c4"
   integrity sha512-3Ln/nHq2V+v8uIaxCR6YfYo7ceRgZNXfTd3yW1ukTaFbO+/I8jNakrjYWODvG9BuR2v5kgVtH/C8r0i11quOgw==
