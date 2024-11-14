@@ -11,8 +11,5 @@ pull_request_rules:
       merge:
         method: merge
         commit_message_template: >
-          {% if ':' in title %}
-              Merge ({{ title | regex_replace('^(.*?):.*', '\\1') | trim }}): {{ title | regex_replace('^.*?:', '') | trim }}
-          {% else %}
-              Merge: {{ title.strip() }}
-          {% endif %}
+          Merge: {{ title.strip() }}
+          
