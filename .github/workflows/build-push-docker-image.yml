@@ -13,7 +13,7 @@ jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
     env:
-      IMAGE_URI: ghcr.io/${{ github.repository_owner }}/${{ github.repository }}
+      REPO_NAME: ${{ github.repository }}
 
     steps:
       - name: Checkout code
@@ -26,10 +26,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Set lowercase repository name as environment variable
+        run: echo "LOWER_REPO_NAME=$(echo ${{ env.REPO_NAME }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       - name: Build the Docker image
-        run: |
-          docker build -t $IMAGE_URI:latest .
+        run: docker build -t ghcr.io/${{ env.LOWER_REPO_NAME }}:latest .
 
       - name: Push the image
-        run: |
-          docker push $IMAGE_URI:latest
+        run: docker push ghcr.io/${{ env.LOWER_REPO_NAME }}:latest
