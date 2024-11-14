@@ -1,0 +1,49 @@
+{
+  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:react-hooks/recommended", "next/core-web-vitals", "next/typescript"],
+  "plugins": ["eslint-plugin-react", "eslint-plugin-react-hooks", "eslint-plugin-prettier", "eslint-plugin-filename-rules"],
+  "env": {
+    "browser": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "semi": ["warn", "never"],
+    "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
+    "react/jsx-max-depth": ["error", { "max": 5 }],
+    "react/no-multi-comp": "warn",
+    "react/button-has-type": "error",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "default",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "variable",
+        "format": ["PascalCase", "camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "parameter",
+        "format": ["camelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "property",
+        "format": null,
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": "typeLike",
+        "format": ["PascalCase"]
+      }
+    ]
+  }
+}
