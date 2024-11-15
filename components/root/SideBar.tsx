@@ -56,13 +56,16 @@ function RenderSideBarItem(item: SideBarItemProps & { isLast?: boolean }) {
   const HeroIcon = useHeroIcon({ iconName: item.icon as HeroIconName })
   return (
     <>
-      <li
-        className={twMerge(
-          'flex gap-4 items-center rounded-md p-3 dark:hover:bg-neutral-700/80 dark:hover:text-gray-200 hover:bg-gray-300 hover:text-gray-900 dark:bg-neutral-700/30',
-          item.isLast ? 'mb-2' : '',
-        )}>
-        <HeroIcon className='size-6' />
-        <Link href={item.href}>{item.title}</Link>
+      <li>
+        <Link
+          href={item.href}
+          className={twMerge(
+            'flex gap-4 items-center rounded-md p-3 dark:hover:bg-neutral-700/80 dark:hover:text-gray-200 hover:bg-gray-300 hover:text-gray-900 dark:bg-neutral-700/30',
+            item.isLast ? 'mb-2' : '',
+          )}>
+          <HeroIcon className='size-6' />
+          <span>{item.title}</span>
+        </Link>
       </li>
       {item.items && <RenderSideBarItems items={item.items} className='pl-10 -mt-0' />}
     </>
