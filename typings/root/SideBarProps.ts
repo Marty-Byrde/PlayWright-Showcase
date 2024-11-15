@@ -3,6 +3,6 @@ import SideBarItemProps from '@/typings/root/SideBarItemProps'
 
 export default interface SideBarProps {
   title: string
-  icon: HeroIconName
+  iconName: HeroIconName
   items: Array<SideBarItemProps>
 }

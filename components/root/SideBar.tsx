@@ -3,12 +3,9 @@ import SideBarProps from '@/typings/root/SideBarProps'
 import PowerIcon from '@/icons/PowerIcon'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints, SideBarConfiguration } from '@/config/SideBarConfig'
-import DesktopSideBar from '@/components/root/SideBar-Variants/DesktopSideBar'
 import { randomUUID } from 'node:crypto'
-import SideBarItemProps from '@/typings/root/SideBarItemProps'
-import useHeroIcon from '@/hooks/useHeroIcon'
-import { HeroIconName } from '@/typings/icons/HeroIcons'
-import Link from 'next/link'
+import { RenderSideBarItem } from '@/components/root/SideBar/RenderSideBarItem'
+import DesktopSideBar from '@/components/root/SideBar/variants/DesktopSideBar'
 
 export default async function SideBar() {
   return (
@@ -39,7 +36,7 @@ function MobileSideBar(props: SideBarProps) {
  */
 export function RenderSideBarItems({ items, className }: { items: SideBarProps['items']; className?: string }) {
   return (
-    <ul className={twMerge('pl-2 flex flex-col gap-3', className)}>
+    <ul className={twMerge('pl-2 space-y-1', className)}>
       {items.map((item, index) => (
         <RenderSideBarItem key={randomUUID() + item.title} {...item} isLast={items.length - 1 === index} />
       ))}
@@ -52,19 +49,3 @@ export function RenderSideBarItems({ items, className }: { items: SideBarProps['
  * @param item The item to render
  * @param isLast Whether this item is the last item of its parent list. This is used to apply additional spacing between the last item and the next item-tree.
  */
-function RenderSideBarItem(item: SideBarItemProps & { isLast?: boolean }) {
-  const HeroIcon = useHeroIcon({ iconName: item.icon as HeroIconName })
-  return (
-    <>
-      <li
-        className={twMerge(
-          'flex gap-4 items-center rounded-md p-3 dark:hover:bg-neutral-700/80 dark:hover:text-gray-200 hover:bg-gray-300 hover:text-gray-900 dark:bg-neutral-700/30',
-          item.isLast ? 'mb-2' : '',
-        )}>
-        <HeroIcon className='size-6' />
-        <Link href={item.href}>{item.title}</Link>
-      </li>
-      {item.items && <RenderSideBarItems items={item.items} className='pl-10 -mt-0' />}
-    </>
-  )
-}

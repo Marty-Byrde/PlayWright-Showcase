@@ -2,40 +2,40 @@ import SideBarProps from '@/typings/root/SideBarProps'
 
 export const SideBarConfiguration: SideBarProps = {
   title: 'Power Plant Operations',
-  icon: 'PowerIcon',
+  iconName: 'PowerIcon',
   items: [
     {
       title: 'Dashboard',
       href: '/item1',
-      icon: 'ChartPieIcon',
+      iconName: 'ChartPieIcon',
       items: [
         {
           title: 'Power Consumption',
           href: '/subitem1',
-          icon: 'PowerIcon',
+          iconName: 'PowerIcon',
         },
         {
           title: 'RPM History',
           href: '/subitem1',
-          icon: 'LifebuoyIcon',
+          iconName: 'LifebuoyIcon',
         },
         {
           title: 'Weather Data',
           href: '/subitem1',
-          icon: 'SparklesIcon',
+          iconName: 'SparklesIcon',
         },
       ],
     },
     {
       title: 'Control Room',
       href: '/item2',
-      icon: 'WrenchScrewdriverIcon',
+      iconName: 'WrenchScrewdriverIcon',
     },
   ],
 }
 
-export const DesktopSideBarVisibilityBreakpoints = 'hidden md:flex w-[350px]'
+export const DesktopSideBarVisibilityBreakpoints = 'hidden md:flex w-[300px]'
 
 export const MobileSideBarVisibilityBreakpoints = 'flex md:hidden'
 
-export const MainContentShiftBreakpoints = 'md:ml-[350px]'
+export const MainContentShiftBreakpoints = 'md:ml-[300px]'

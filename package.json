@@ -15,12 +15,14 @@
     "testAll": "npm run test && npm run jest:test"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^13.5.0",
     "cross-env": "^7.0.3",
+    "jsdom-testing-mocks": "^1.13.1",
     "monocart-reporter": "^2.9.9",
     "next": "14.2.17",
     "react": "^18",
