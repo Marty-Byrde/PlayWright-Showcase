@@ -5,10 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints, SideBarConfiguration } from '@/config/SideBarConfig'
 import DesktopSideBar from '@/components/root/SideBar-Variants/DesktopSideBar'
 import { randomUUID } from 'node:crypto'
-import SideBarItemProps from '@/typings/root/SideBarItemProps'
-import useHeroIcon from '@/hooks/useHeroIcon'
-import { HeroIconName } from '@/typings/icons/HeroIcons'
-import Link from 'next/link'
+import { RenderSideBarItem } from '@/components/root/SideBar/RenderSideBarItem'
 
 export default async function SideBar() {
   return (
@@ -52,22 +49,3 @@ export function RenderSideBarItems({ items, className }: { items: SideBarProps['
  * @param item The item to render
  * @param isLast Whether this item is the last item of its parent list. This is used to apply additional spacing between the last item and the next item-tree.
  */
-function RenderSideBarItem(item: SideBarItemProps & { isLast?: boolean }) {
-  const HeroIcon = useHeroIcon({ iconName: item.icon as HeroIconName })
-  return (
-    <>
-      <li>
-        <Link
-          href={item.href}
-          className={twMerge(
-            'flex gap-4 items-center rounded-md p-3 dark:hover:bg-neutral-700/80 dark:hover:text-gray-200 hover:bg-gray-300 hover:text-gray-900 dark:bg-neutral-700/30',
-            item.isLast ? 'mb-2' : '',
-          )}>
-          <HeroIcon className='size-6' />
-          <span>{item.title}</span>
-        </Link>
-      </li>
-      {item.items && <RenderSideBarItems items={item.items} className='pl-10 -mt-0' />}
-    </>
-  )
-}
