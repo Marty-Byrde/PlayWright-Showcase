@@ -73,7 +73,11 @@ function SideBarItem({ title, iconName, items, isOpen }: SideBarElementProps) {
   return (
     <>
       <Icon className='size-6' />
-      <span className={twMerge('text-sm leading-6 text-gray-600 group-hover:text-indigo-600 dark:text-gray-300 dark:group-hover:text-blue-400', isOpen ? 'text-indigo-600 dark:text-blue-400' : '')}>
+      <span
+        className={twMerge(
+          'element-title text-sm leading-6 text-gray-600 group-hover:text-indigo-600 dark:text-gray-300 dark:group-hover:text-blue-400',
+          isOpen ? 'text-indigo-600 dark:text-blue-400' : '',
+        )}>
         {title}
       </span>
       <AnimatedContainerOpenIndicator isOpen={isOpen} enabled={!!items?.length} />
