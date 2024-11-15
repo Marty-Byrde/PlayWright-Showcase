@@ -38,9 +38,7 @@ describe('DesktopSideBar', () => {
 
 /**
  * Opens all disclosures in the sidebar recursively.
- * Note that by using the act function, failing the test when the disclosure does not open is not possible.
- * Interestingly, using the act function throws an error when calling the function recursively.
- * @returns Promise<void> - opens all disclosures when using act, even though it is not called recursively
+ * @returns Promise<void> - opens all disclosures by using the act function
  * @param elements
  */
 async function openSideBarElementDisclosures(elements: HTMLElement[]) {
@@ -48,19 +46,10 @@ async function openSideBarElementDisclosures(elements: HTMLElement[]) {
     //* Disclosure-Open button
     if (element.children[0].tagName === 'BUTTON') {
       const button = element.children[0] as HTMLButtonElement
+
+      //? Open Disclosure-Panels (recursively due to the act function)
       button.click()
       await wait(500) // wait for animation to finish
-
-      //? Disclosure-Panel did not open
-      if (element.children.length === 1) {
-        // fail('Disclosure-Panel did not open')
-      }
-
-      //* Recursive call for subitems
-      // await openSideBarElementDisclosures(element.children[1].children as HTMLElement[])
     }
-
-    //* Link of simple element (no subitems)
-    if (element.children[0].tagName === 'A') continue
   }
 }
