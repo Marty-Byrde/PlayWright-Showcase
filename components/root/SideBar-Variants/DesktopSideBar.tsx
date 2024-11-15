@@ -9,7 +9,7 @@ import Link from 'next/link'
 export default function DesktopSideBar(props: SideBarProps) {
   return (
     <div className={twMerge('fixed dark:bg-neutral-900/50 bg-gray-200 h-full flex-col p-3 pl-2', DesktopSideBarVisibilityBreakpoints)}>
-      <div id={'sidebar-header'} className='flex gap-4 items-center pl-6 pb-3 border-b-2 dark:border-neutral-300 border-gray-600'>
+      <div id={'sidebar-header'} className='flex gap-4 items-center justify-center pb-3 border-b-2 dark:border-neutral-300 border-gray-600'>
         <PowerIcon />
         <h3 className='text-xl dark:text-gray-300 text-gray-700'>{props.title}</h3>
       </div>
