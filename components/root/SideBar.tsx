@@ -3,9 +3,9 @@ import SideBarProps from '@/typings/root/SideBarProps'
 import PowerIcon from '@/icons/PowerIcon'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints, SideBarConfiguration } from '@/config/SideBarConfig'
-import DesktopSideBar from '@/components/root/SideBar-Variants/DesktopSideBar'
 import { randomUUID } from 'node:crypto'
 import { RenderSideBarItem } from '@/components/root/SideBar/RenderSideBarItem'
+import DesktopSideBar from '@/components/root/SideBar/variants/DesktopSideBar'
 
 export default async function SideBar() {
   return (

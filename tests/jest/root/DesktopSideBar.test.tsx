@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { describe, it } from '@jest/globals'
 import { SideBarConfiguration } from '@/config/SideBarConfig'
-import DesktopSideBar from '@/components/root/SideBar-Variants/DesktopSideBar'
+import DesktopSideBar from '@/components/root/SideBar/variants/DesktopSideBar'
 
 describe('DesktopSideBar', () => {
   it('has the correct title', async () => {
