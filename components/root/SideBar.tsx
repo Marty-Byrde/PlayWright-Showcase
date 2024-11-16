@@ -1,11 +1,10 @@
 import React from 'react'
 import SideBarProps from '@/typings/root/SideBarProps'
-import PowerIcon from '@/icons/PowerIcon'
 import { twMerge } from 'tailwind-merge'
-import { MobileSideBarVisibilityBreakpoints, SideBarConfiguration } from '@/config/SideBarConfig'
-import { randomUUID } from 'node:crypto'
+import { SideBarConfiguration } from '@/config/SideBarConfig'
 import { RenderSideBarItem } from '@/components/root/SideBar/RenderSideBarItem'
 import DesktopSideBar from '@/components/root/SideBar/variants/DesktopSideBar'
+import MobileSideBar from '@/components/root/SideBar/variants/MobileSideBar'
 
 export default async function SideBar() {
   return (
@@ -13,19 +12,6 @@ export default async function SideBar() {
       <MobileSideBar {...SideBarConfiguration} />
       <DesktopSideBar {...SideBarConfiguration} />
     </>
-  )
-}
-
-function MobileSideBar(props: SideBarProps) {
-  return (
-    <div className={twMerge('bg-gray-50 dark:bg-neutral-900 p-4 border-b-2 justify-between', MobileSideBarVisibilityBreakpoints)}>
-      <div id={'sidebar-header'} className='flex gap-4 items-center justify-center'>
-        <PowerIcon />
-        <h3 className='text-xl'>{props.title}</h3>
-      </div>
-
-      <>Hamburger</>
-    </div>
   )
 }
 
@@ -38,7 +24,7 @@ export function RenderSideBarItems({ items, className }: { items: SideBarProps['
   return (
     <ul className={twMerge('pl-2 space-y-1', className)}>
       {items.map((item) => (
-        <RenderSideBarItem key={randomUUID() + item.title} {...item} />
+        <RenderSideBarItem key={item.title} {...item} />
       ))}
     </ul>
   )
