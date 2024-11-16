@@ -4,7 +4,7 @@
 import { createContext, Fragment, useContext, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints } from '@/config/SideBarConfig'
-import { Bars3Icon, BoltIcon, MoonIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { BoltIcon, MoonIcon } from '@heroicons/react/24/outline'
 import SideBarProps from '@/typings/root/SideBarProps'
 import useHeroIcon from '@/hooks/useHeroIcon'
 import { Dialog, Transition } from '@headlessui/react'
@@ -60,7 +60,7 @@ function OpenCloseButton() {
   const ButtonIcon = useHeroIcon({ iconName: isOpen ? 'XMarkIcon' : 'Bars3Icon' })
 
   return (
-    <button type='button' className='-m-2.5 p-2.5 text-gray-700 dark:text-gray-200' onClick={() => setIsOpen(!isOpen)}>
+    <button name='open-close-button' type='button' className='-m-2.5 p-2.5 text-gray-700 dark:text-gray-200' onClick={() => setIsOpen(!isOpen)}>
       <span className='sr-only'>{screenReaderText}</span>
 
       <ButtonIcon className='size-6' />
