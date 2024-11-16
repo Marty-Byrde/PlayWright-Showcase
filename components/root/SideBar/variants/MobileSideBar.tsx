@@ -4,10 +4,11 @@
 import { createContext, Fragment, useContext, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints } from '@/config/SideBarConfig'
-import { Bars3Icon, MoonIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BoltIcon, MoonIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import SideBarProps from '@/typings/root/SideBarProps'
 import useHeroIcon from '@/hooks/useHeroIcon'
 import { Dialog, Transition } from '@headlessui/react'
+import { RenderSideBarItems } from '@/components/root/SideBar'
 
 interface MobileSideBarContextProps {
   isOpen: boolean
@@ -32,6 +33,20 @@ export default function MobileSideBar(props: SideBarProps) {
         <span className='flex-1 text-center text-lg font-semibold leading-6 text-gray-700 dark:text-gray-200'>{props.title}</span>
         <MoonIcon className='size-6' />
       </div>
+
+      <MobileSideBarDialog>
+        <div className='flex grow flex-col gap-y-5 overflow-y-auto bg-white pb-2 dark:bg-neutral-800'>
+          <div className='flex shrink-0 items-center justify-between border-b-2 pl-4 py-4 border-solid px-2 border-gray-400 dark:border-gray-200 dark:bg-neutral-900'>
+            <BoltIcon className='size-6' />
+            <span className='text-lg flex-1 mx-auto pr-4 text-center font-semibold leading-6 text-gray-700 dark:text-gray-200'>Navigation</span>
+            <OpenCloseButton />
+          </div>
+
+          <nav className='flex flex-1 flex-col pr-4 pl-2'>
+            <RenderSideBarItems items={props.items} />
+          </nav>
+        </div>
+      </MobileSideBarDialog>
     </MobileSideBarContext.Provider>
   )
 }
