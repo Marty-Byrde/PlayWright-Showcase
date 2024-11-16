@@ -16,7 +16,7 @@ interface SideBarElementProps extends SideBarItemProps {
  * @constructor
  */
 export function RenderSideBarItem(props: SideBarElementProps) {
-  const hasItems = props.items?.length > 0
+  const hasItems = !!props.items?.length
 
   return hasItems ? <SideBarItem_WithSubItems {...props} /> : <SideBarItem_NoSubItems {...props} />
 }
