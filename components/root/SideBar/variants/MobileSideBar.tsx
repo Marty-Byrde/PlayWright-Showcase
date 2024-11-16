@@ -60,7 +60,7 @@ function OpenCloseButton() {
   const ButtonIcon = useHeroIcon({ iconName: isOpen ? 'XMarkIcon' : 'Bars3Icon' })
 
   return (
-    <button type='button' className='-m-2.5 p-2.5 text-gray-700 dark:text-gray-200 lg:hidden' onClick={() => setIsOpen(!isOpen)}>
+    <button type='button' className='-m-2.5 p-2.5 text-gray-700 dark:text-gray-200' onClick={() => setIsOpen(!isOpen)}>
       <span className='sr-only'>{screenReaderText}</span>
 
       <ButtonIcon className='size-6' />
@@ -77,7 +77,7 @@ function MobileSideBarDialog({ children }: { children: React.ReactNode }) {
 
   return (
     <Transition.Root show={isOpen} as={Fragment}>
-      <Dialog as='div' className='relative z-50 lg:hidden' onClose={setIsOpen}>
+      <Dialog as='div' className={twMerge('relative z-50', MobileSideBarVisibilityBreakpoints)} onClose={setIsOpen}>
         <Transition.Child
           as={Fragment}
           enter='transition-opacity ease-linear duration-300'
