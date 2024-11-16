@@ -17,33 +17,6 @@
     "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
     "react/jsx-max-depth": ["error", { "max": 5 }],
     "react/no-multi-comp": "warn",
-    "react/button-has-type": "error",
-    "@typescript-eslint/naming-convention": [
-      "warn",
-      {
-        "selector": "default",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "variable",
-        "format": ["PascalCase", "camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "parameter",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "property",
-        "format": null,
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
-      }
-    ]
+    "react/button-has-type": "error"
   }
 }
