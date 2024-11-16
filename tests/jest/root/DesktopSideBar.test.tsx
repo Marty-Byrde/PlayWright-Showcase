@@ -4,6 +4,7 @@ import { SideBarConfiguration } from '@/config/SideBarConfig'
 import DesktopSideBar from '@/components/root/SideBar/variants/DesktopSideBar'
 import { wait } from '@testing-library/user-event/dist/utils'
 import { mockAnimationsApi } from 'jsdom-testing-mocks'
+import SideBarProps from '@/typings/root/SideBarProps'
 
 mockAnimationsApi()
 
@@ -33,6 +34,30 @@ describe('DesktopSideBar', () => {
 
     expect(items).toHaveLength(expectedItems.length)
     expect(itemTitles).toEqual(expectedItems.map((item) => item.title))
+  })
+
+  it('checks whether items without subitems and href are rendered as valid link', async () => {
+    const config: SideBarProps = {
+      title: 'Test',
+      iconName: 'LifebuoyIcon',
+      items: [
+        {
+          title: 'Test',
+          iconName: 'LifebuoyIcon',
+        },
+      ],
+    }
+    const Component = await DesktopSideBar({ ...config })
+    render(Component)
+
+    const items = screen.getAllByRole('listitem', {})
+    expect(items).toHaveLength(1)
+
+    const annchorTags = items[0].getElementsByTagName('a')
+    expect(annchorTags).toHaveLength(1)
+
+    expect(annchorTags[0].textContent).toBe(config.items.at(0).title)
+    expect(annchorTags[0]).toHaveAttribute('href', '#')
   })
 })
 
