@@ -2,7 +2,7 @@
 import { getServerSession, User } from 'next-auth'
 import { options } from '@/app/api/auth/[...nextauth]/options'
 
-interface GitHubUser extends User {
+export interface GitHubUser extends User {
   name: string
   image: string
   email: string
