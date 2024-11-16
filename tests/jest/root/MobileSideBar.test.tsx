@@ -1,16 +1,15 @@
-import { act, render, screen } from '@testing-library/react'
+import { act, render, renderHook, screen } from '@testing-library/react'
 import { describe, it } from '@jest/globals'
 import { SideBarConfiguration } from '@/config/SideBarConfig'
 import { wait } from '@testing-library/user-event/dist/utils'
-import { mockAnimationsApi } from 'jsdom-testing-mocks'
 import MobileSideBar from '@/components/root/SideBar/variants/MobileSideBar'
+import { mockAnimationsApi } from 'jsdom-testing-mocks'
 
 mockAnimationsApi()
 
 describe('MobileSideBar', () => {
   it('has the correct title', async () => {
-    const Component = await MobileSideBar({ ...SideBarConfiguration })
-    render(Component)
+    renderHook(() => render(MobileSideBar({ ...SideBarConfiguration })))
 
     const sidebarHeading = screen.getByRole('heading', { level: 3 })
 
@@ -19,8 +18,7 @@ describe('MobileSideBar', () => {
   })
 
   it('shows navigation items and containers (=item with subitems)', async () => {
-    const Component = await MobileSideBar({ ...SideBarConfiguration })
-    render(Component)
+    renderHook(() => render(MobileSideBar({ ...SideBarConfiguration })))
 
     //? Open Dialog
     const openCloseButton = screen.getByRole('button', { name: 'open-close-button' })
