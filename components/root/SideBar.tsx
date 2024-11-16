@@ -37,8 +37,8 @@ function MobileSideBar(props: SideBarProps) {
 export function RenderSideBarItems({ items, className }: { items: SideBarProps['items']; className?: string }) {
   return (
     <ul className={twMerge('pl-2 space-y-1', className)}>
-      {items.map((item, index) => (
-        <RenderSideBarItem key={randomUUID() + item.title} {...item} isLast={items.length - 1 === index} />
+      {items.map((item) => (
+        <RenderSideBarItem key={randomUUID() + item.title} {...item} />
       ))}
     </ul>
   )
