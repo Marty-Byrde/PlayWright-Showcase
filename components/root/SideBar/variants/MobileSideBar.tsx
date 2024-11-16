@@ -30,7 +30,7 @@ export default function MobileSideBar(props: SideBarProps) {
     <MobileSideBarContext.Provider value={{ isOpen, setIsOpen }}>
       <div id='mobile-sidebar-top-bar' className={twMerge('bg-gray-50 dark:bg-neutral-900 p-4 border-b-2 justify-between', MobileSideBarVisibilityBreakpoints)}>
         <OpenCloseButton />
-        <span className='flex-1 text-center text-lg font-semibold leading-6 text-gray-700 dark:text-gray-200'>{props.title}</span>
+        <h3 className='flex-1 text-center text-lg font-semibold leading-6 text-gray-700 dark:text-gray-200'>{props.title}</h3>
         <MoonIcon className='size-6' />
       </div>
 
