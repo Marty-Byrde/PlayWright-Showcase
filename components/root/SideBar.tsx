@@ -2,7 +2,6 @@ import React from 'react'
 import SideBarProps from '@/typings/root/SideBarProps'
 import { twMerge } from 'tailwind-merge'
 import { SideBarConfiguration } from '@/config/SideBarConfig'
-import { randomUUID } from 'node:crypto'
 import { RenderSideBarItem } from '@/components/root/SideBar/RenderSideBarItem'
 import DesktopSideBar from '@/components/root/SideBar/variants/DesktopSideBar'
 import MobileSideBar from '@/components/root/SideBar/variants/MobileSideBar'
@@ -25,7 +24,7 @@ export function RenderSideBarItems({ items, className }: { items: SideBarProps['
   return (
     <ul className={twMerge('pl-2 space-y-1', className)}>
       {items.map((item) => (
-        <RenderSideBarItem key={randomUUID() + item.title} {...item} />
+        <RenderSideBarItem key={item.title} {...item} />
       ))}
     </ul>
   )
