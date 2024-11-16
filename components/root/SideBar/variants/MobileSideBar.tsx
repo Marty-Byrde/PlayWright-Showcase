@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-max-depth */
 'use client'
 
 import { createContext, useContext, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints } from '@/config/SideBarConfig'
-import { Bars3Icon, MoonIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, MoonIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import SideBarProps from '@/typings/root/SideBarProps'
+import useHeroIcon from '@/hooks/useHeroIcon'
 
 interface MobileSideBarContextProps {
   isOpen: boolean
@@ -25,7 +27,7 @@ export default function MobileSideBar(props: SideBarProps) {
   return (
     <MobileSideBarContext.Provider value={{ isOpen, setIsOpen }}>
       <div id='mobile-sidebar-top-bar' className={twMerge('bg-gray-50 dark:bg-neutral-900 p-4 border-b-2 justify-between', MobileSideBarVisibilityBreakpoints)}>
-        <OpenSideBarButton />
+        <OpenCloseButton />
         <span className='flex-1 text-center text-lg font-semibold leading-6 text-gray-700 dark:text-gray-200'>{props.title}</span>
         <MoonIcon className='size-6' />
       </div>
@@ -33,13 +35,19 @@ export default function MobileSideBar(props: SideBarProps) {
   )
 }
 
-function OpenSideBarButton() {
-  const { setIsOpen } = useMobileSideBarContext()
+/**
+ * This component renders a button that opens or closes the mobile sidebar depending on its open-state.
+ */
+function OpenCloseButton() {
+  const { isOpen, setIsOpen } = useMobileSideBarContext()
+  const screenReaderText = isOpen ? 'Close sidebar' : 'Open sidebar'
+  const ButtonIcon = useHeroIcon({ iconName: isOpen ? 'XMarkIcon' : 'Bars3Icon' })
 
   return (
-    <button type='button' className='-m-2.5 p-2.5 text-gray-700 dark:text-gray-200 lg:hidden' onClick={() => setIsOpen(true)}>
-      <span className='sr-only'>Open sidebar</span>
-      <Bars3Icon className='size-6' aria-hidden='true' />
+    <button type='button' className='-m-2.5 p-2.5 text-gray-700 dark:text-gray-200 lg:hidden' onClick={() => setIsOpen(!isOpen)}>
+      <span className='sr-only'>{screenReaderText}</span>
+
+      <ButtonIcon className='size-6' />
     </button>
   )
 }
