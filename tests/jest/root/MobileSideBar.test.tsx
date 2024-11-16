@@ -21,8 +21,8 @@ describe('MobileSideBar', () => {
     renderHook(() => render(MobileSideBar({ ...SideBarConfiguration })))
 
     //? Open Dialog
-    const openCloseButton = screen.getByRole('button', { name: 'open-close-button' })
-    openCloseButton.click()
+    const openCloseButton = screen.getByRole('button', { name: 'Open sidebar' })
+    act(() => openCloseButton.click())
 
     // Todo DRY: Extract this into a helper function
     const initialSidebarItems = screen.getAllByRole('listitem', {})
