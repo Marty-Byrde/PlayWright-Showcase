@@ -17,7 +17,7 @@ interface MobileSideBarContextProps {
 
 const MobileSideBarContext = createContext<MobileSideBarContextProps>({} as MobileSideBarContextProps)
 
-export function useMobileSideBarContext() {
+function useMobileSideBarContext() {
   const context = useContext(MobileSideBarContext)
 
   return context
