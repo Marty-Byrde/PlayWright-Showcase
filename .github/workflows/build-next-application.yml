@@ -6,6 +6,9 @@ jobs:
   build-nextjs-application:
     runs-on: ubuntu-latest
 
+    # Pass along the environment variables
+    environment: Env Variables
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
