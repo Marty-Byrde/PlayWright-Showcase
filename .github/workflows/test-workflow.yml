@@ -1,13 +1,9 @@
 name: Run Tests
 on: push
 jobs:
-
   # Build Job
   build:
     runs-on: ubuntu-latest
-    # Pass along the environment variables
-    environment: Env Variables
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3

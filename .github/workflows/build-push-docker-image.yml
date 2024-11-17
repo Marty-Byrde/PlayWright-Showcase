@@ -12,8 +12,6 @@ permissions:
 jobs:
   build-and-push-docker-image:
     runs-on: ubuntu-latest
-    # Pass along the environment variables
-    environment: Env Variables
     env:
       REPO_NAME: ${{ github.repository }}
 
