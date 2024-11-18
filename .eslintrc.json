@@ -12,7 +12,12 @@
     }
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
     "semi": ["warn", "never"],
     "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
     "react/jsx-max-depth": ["error", { "max": 5 }],

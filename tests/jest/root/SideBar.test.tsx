@@ -23,7 +23,6 @@ describe('SideBar', () => {
     await waitFor(() => {
       global.innerWidth = width
 
-      console.log(global.innerWidth)
       fireEvent(global, new Event('resize'))
       global.dispatchEvent(new Event('resize'))
     })
