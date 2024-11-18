@@ -14,15 +14,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_AUTO_REVIEW }}
 
       - name: Approve Pull request if only allowed files were changed
-        if: success()  # Ensure this runs only if the previous step succeeds
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.ACCESS_TOKEN_AUTO_REVIEW }}
           script: |
-            await github.pulls.createReview({
+            const pull_number = context.payload.pull_request.number;
+            const reviewResponse = await github.rest.pulls.createReview({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              pull_number: context.issue.number,
+              pull_number: pull_number,
               event: 'APPROVE',
-              body: 'Auto-approved because only allowed files were changed.'
+              body: 'Automated approval based on allowed changes.'
             });
+            console.log('Review Response:', reviewResponse);
