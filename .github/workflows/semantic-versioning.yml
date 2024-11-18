@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  GH_TOKEN: ${{ secrets.ACCESS_TOKEN_SEMANTIC_VERSIONING }}
+
+jobs:
+  versioning:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Node 21
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Run semantice release
+        run: |
+          npx semantic-release
+
+      - name: Print package.json version (before)
+        run: |
+          echo "package.json version (before): $(jq -r .version package.json)"
+
+      - name: Fetch Latest Commit
+        run: |
+          git fetch
+          git reset --hard origin/main
+
+      - name: Print package.json version (after)
+        run: |
+          echo "package.json version (after): $(jq -r .version package.json)"
