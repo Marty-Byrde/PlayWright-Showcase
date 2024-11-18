@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-max-depth */
 'use client'
 
-import { createContext, Fragment, useContext, useState } from 'react'
+import React, { createContext, Fragment, Suspense, useContext, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints } from '@/config/SideBarConfig'
 import { BoltIcon, MoonIcon } from '@heroicons/react/24/outline'
@@ -9,6 +9,8 @@ import SideBarProps from '@/typings/root/SideBarProps'
 import useHeroIcon from '@/hooks/useHeroIcon'
 import { Dialog, Transition } from '@headlessui/react'
 import { RenderSideBarItems } from '@/components/root/SideBar'
+import { LoadingProfileInformation } from '@/components/root/UserProfile/LoadingUserInformation'
+import UserProfile from '@/components/root/UserProfile/UserProfie'
 
 interface MobileSideBarContextProps {
   isOpen: boolean
@@ -42,9 +44,13 @@ export default function MobileSideBar(props: SideBarProps) {
             <OpenCloseButton />
           </div>
 
-          <nav className='flex flex-1 flex-col pr-4 pl-2'>
+          <div className='h-full dark:text-gray-300/90 text-gray-600 pr-4 pl-2'>
             <RenderSideBarItems items={props.items} />
-          </nav>
+          </div>
+
+          <Suspense fallback={LoadingProfileInformation()}>
+            <UserProfile profilePage='#' />
+          </Suspense>
         </div>
       </MobileSideBarDialog>
     </MobileSideBarContext.Provider>

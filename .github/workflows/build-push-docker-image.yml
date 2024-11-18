@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPO_NAME: ${{ github.repository }}
+      NEXT_AUTH_GITHUB_ID: ${{ secrets.NEXT_AUTH_GITHUB_ID }}
+      NEXT_AUTH_GITHUB_SECRET: ${{ secrets.NEXT_AUTH_GITHUB_SECRET }}
+      NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+      NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
 
     steps:
       - name: Checkout code

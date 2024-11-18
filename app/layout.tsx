@@ -4,6 +4,7 @@ import SideBar from '@/components/root/SideBar'
 import { twMerge } from 'tailwind-merge'
 import { MainContentShiftBreakpoints } from '@/config/SideBarConfig'
 import React from 'react'
+import AuthProvider from '@/components/root/AuthProvider'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-200`}>
         <SideBar />
-        <div className={twMerge('p-4', MainContentShiftBreakpoints)}>{children}</div>
+        <AuthProvider>
+          <div className={twMerge('p-4', MainContentShiftBreakpoints)}>{children}</div>
+        </AuthProvider>
       </body>
     </html>
   )
