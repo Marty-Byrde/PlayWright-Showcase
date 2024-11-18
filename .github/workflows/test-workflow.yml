@@ -14,10 +14,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install Node
+      - name: Set up Node 21
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 21
 
       - name: Install Dependencies
         run: yarn install
