@@ -1,14 +1,19 @@
+name: Automatic Semantic Versioning
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 env:
   GH_TOKEN: ${{ secrets.ACCESS_TOKEN_SEMANTIC_VERSIONING }}
 
 jobs:
-  versioning:
+  semantic-versioning:
     runs-on: ubuntu-latest
 
     steps:
