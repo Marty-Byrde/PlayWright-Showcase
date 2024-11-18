@@ -33,6 +33,13 @@ jobs:
       - name: Set lowercase repository name as environment variable
         run: echo "LOWER_REPO_NAME=$(echo ${{ env.REPO_NAME }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
 
+      - name: Create .env file
+        run: |
+          echo "NEXT_AUTH_GITHUB_ID=${{ env.NEXT_AUTH_GITHUB_ID }}" >> .env
+          echo "NEXT_AUTH_GITHUB_SECRET=${{ env.NEXT_AUTH_GITHUB_SECRET }}" >> .env
+          echo "NEXTAUTH_URL=${{ env.NEXTAUTH_URL }}" >> .env
+          echo "NEXTAUTH_SECRET=${{ env.NEXTAUTH_SECRET }}" >> .env
+
       - name: Build the Docker image
         run: docker build -t ghcr.io/${{ env.LOWER_REPO_NAME }}:latest .
 
