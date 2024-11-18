@@ -7,7 +7,7 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
-    "jest:test": "jest --coverage",
+    "jest:test": "NODE_NO_WARNINGS=1 jest --coverage",
     "test": "playwright test",
     "test:clean": "rimraf .v8-coverage",
     "test:start": "cross-env NODE_V8_COVERAGE=.v8-coverage NODE_OPTIONS=--inspect=9229 next dev",
