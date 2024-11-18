@@ -1,0 +1,9 @@
+{
+  "approvalRules": [
+    {
+      "changedFiles": {
+        "allowed": [".github/*", "package.json", "yarn.lock"]
+      }
+    }
+  ]
+}
