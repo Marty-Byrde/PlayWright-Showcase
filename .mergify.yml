@@ -14,7 +14,7 @@ pull_request_rules:
         commit_message_template: >
           Merge: {{ title.strip() }}
       comment:
-        message: @{{author}} your PR satiesfies all status-checks and will be automatically merged soon.
+        message: This Pull request satisfies all status-checks and will be automatically merged soon.
 
   - name: Manual merge when Auto-Reviewed
     conditions:
