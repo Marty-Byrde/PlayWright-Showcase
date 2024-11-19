@@ -7,6 +7,7 @@ pull_request_rules:
       - approved-reviews-by>=1
       - check-success=codecov/patch
       - check-success=codecov/project
+      - label != manual-merge
     actions:
       merge:
         method: merge
