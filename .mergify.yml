@@ -23,6 +23,6 @@ pull_request_rules:
     actions:
       label:
         add:
-          - manual-merge
+          - "manual-merge"
       comment:
         message: This Pull request has been auto-reviewed and is ready for manual merge.
