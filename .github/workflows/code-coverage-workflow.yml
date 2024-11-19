@@ -1,5 +1,5 @@
 name: Continuous Integration Pipeline
-#on: push
+on: push
 
 permissions:
   contents: read
