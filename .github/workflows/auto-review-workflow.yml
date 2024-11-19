@@ -11,12 +11,12 @@ jobs:
       - uses: actions/setup-node@v1
       - uses: omio-labs/pr-reviewer-bot@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_AUTO_REVIEW }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Approve Pull request if only allowed files were changed
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.ACCESS_TOKEN_AUTO_REVIEW }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           script: |
             const pull_number = context.payload.pull_request.number;
             const reviewResponse = await github.rest.pulls.createReview({
