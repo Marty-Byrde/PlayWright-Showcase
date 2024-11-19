@@ -3,7 +3,7 @@ name: Auto PR Review
 on: [pull_request]
 
 jobs:
-  test:
+  auto-review:
     runs-on: ubuntu-latest
 
     steps:
