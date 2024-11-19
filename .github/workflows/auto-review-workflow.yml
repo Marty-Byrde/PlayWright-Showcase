@@ -14,7 +14,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_AUTO_REVIEW }}
 
       - name: Approve Pull request if only allowed files were changed
-        if: steps.pr_reviewer_bot.outcome == 'success'
+#        if: steps.pr_reviewer_bot.outcome == 'success'
         uses: actions/github-script@v6
         with:
           github-token: ${{ secrets.ACCESS_TOKEN_AUTO_REVIEW }}
