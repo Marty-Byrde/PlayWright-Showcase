@@ -25,6 +25,6 @@ jobs:
               repo: context.repo.repo,
               pull_number: pull_number,
               event: 'APPROVE',
-              body: 'Automated approval based on allowed changes.'
+              body: 'Automated-Approval: changes made in this PR do not require manual review => Approved'
             });
             console.log('Review Response:', reviewResponse);
