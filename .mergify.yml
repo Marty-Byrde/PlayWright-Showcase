@@ -15,3 +15,11 @@ pull_request_rules:
           Merge: {{ title.strip() }}
       comment:
         message: @{{author}} your PR satiesfies all status-checks and will be automatically merged soon.
+
+  - name: Manual merge when Auto-Reviewed
+    conditions:
+      - status-success=auto-review
+    actions:
+      label:
+        add:
+          - manual-merge
