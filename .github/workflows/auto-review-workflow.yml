@@ -28,3 +28,8 @@ jobs:
               body: 'Automated-Approval: changes made in this PR do not require manual review => Approved'
             });
             console.log('Review Response:', reviewResponse);
+      - name: add manual-merge label
+        if: steps.pr_reviewer_bot.outcome == 'success'
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: manual-merge
