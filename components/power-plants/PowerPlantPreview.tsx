@@ -8,8 +8,9 @@ import RpmSvg from '@/icons/RpmSvg'
 import WaterLevelSvg from '@/icons/WaterLevelSvg'
 import React from 'react'
 import IconProps from '@/typings/icons/IconProps'
+import PowerPlantProps from '@/typings/Shared/PowerPlant'
 
-export interface PowerPlantPreviewProps extends PowerPlantPreviewProps {
+export interface PowerPlantPreviewProps extends PowerPlantProps {
   previewHref?: string
 }
 
