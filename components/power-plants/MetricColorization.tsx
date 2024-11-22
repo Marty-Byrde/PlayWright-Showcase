@@ -20,9 +20,9 @@ export default function MetricColorization({ value, children, thresholdCritical,
    * This function determines the color of the container based on the given metric value.
    */
   const getColor = () => {
-    if (value <= (thresholdCritical ?? 0.5)) return 'dark:ring-red-400/80 dark:bg-red-400/15'
-    if (value <= (thresholdWarning ?? 0.75)) return 'dark:ring-yellow-400/80 dark:bg-yellow-400/15'
-    return 'dark:ring-green-400/80 dark:bg-green-400/15'
+    if (value <= (thresholdCritical ?? 0.5)) return 'ring-red-700/40 bg-red-600/10 dark:ring-red-400/80 dark:bg-red-400/15'
+    if (value <= (thresholdWarning ?? 0.75)) return 'ring-yellow-700/40 bg-yellow-600/10 dark:ring-yellow-400/80 dark:bg-yellow-400/15'
+    return 'ring-green-700/40 bg-green-600/10 dark:ring-green-400/80 dark:bg-green-400/15'
   }
 
   return <div className={twMerge('p-2 rounded-full ring-2 size-11 flex justify-center items-center', getColor())}>{children}</div>

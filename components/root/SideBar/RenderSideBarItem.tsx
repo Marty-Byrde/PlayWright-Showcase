@@ -72,7 +72,7 @@ function SideBarItem({ title, iconName, items, isOpen }: SideBarElementProps) {
   const Icon = useHeroIcon({ iconName })
   return (
     <>
-      <Icon className='size-6' />
+      <Icon className={twMerge('size-6 dark:group-hover:text-blue-400 group-hover:text-indigo-600 group-hover:stroke-2', isOpen ? 'dark:text-blue-400 text-indigo-600 stroke-2' : '')} />
       <span
         className={twMerge(
           'element-title text-sm leading-6 text-gray-600 group-hover:text-indigo-600 dark:text-gray-300 dark:group-hover:text-blue-400',
