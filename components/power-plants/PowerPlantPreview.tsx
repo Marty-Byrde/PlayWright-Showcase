@@ -44,7 +44,13 @@ export default function PowerPlantPreview({ id, name, capacity, metric3, metric2
 }
 
 function PowerPlantPreviewIcon({ className }: IconProps) {
-  const colorOptions = ['dark:bg-orange-400/30', 'dark:bg-blue-400/30', 'dark:bg-green-400/30', 'dark:bg-red-400/30', 'dark:bg-yellow-400/30']
+  const colorOptions = [
+    'bg-neutral-700/15 dark:bg-orange-400/30',
+    'bg-blue-700/15 dark:bg-blue-400/30',
+    'bg-green-700/15 dark:bg-green-400/30',
+    'bg-red-700/15 dark:bg-red-400/30',
+    'bg-yellow-700/25 dark:bg-yellow-400/30',
+  ]
   const randomColor = colorOptions[Math.floor(Math.random() * colorOptions.length)]
 
   return <Image src={PowerPlantImage} alt='power-plant-image' className={twMerge('mx-auto p-4 object-contain rounded-tl-3xl rounded-br-3xl', className, randomColor)} />
