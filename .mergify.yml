@@ -26,3 +26,37 @@ pull_request_rules:
           - "manual-merge"
       comment:
         message: This Pull request has been auto-reviewed and is ready for manual merge.
+
+  - name: Auto-Assign Marty-Byrde as Reviewer when Status Checks Pass and Marty-Byrde is not the Author
+    conditions:
+      - status-success=evaluate-code-coverage
+      - status-success=run-all-tests
+      - status-success=build-nextjs-application
+      - -approved-reviews-by>=1
+      - check-success=codecov/patch
+      - check-success=codecov/project
+      - -approved-reviews-by=harvey-specter
+      - -author=Marty-Byrde
+    actions:
+      request_reviews:
+        users:
+          - "Marty-Byrde"
+      comment:
+        message: "Auto-Assigned Marty-Byrde as Reviewer to this Pull Request."
+
+  - name: Auto-Assign MrsicMarko as Reviewer when Status Checks Pass and MrsicMarko is not the Author
+    conditions:
+      - status-success=evaluate-code-coverage
+      - status-success=run-all-tests
+      - status-success=build-nextjs-application
+      - -approved-reviews-by>=1
+      - check-success=codecov/patch
+      - check-success=codecov/project
+      - -approved-reviews-by=harvey-specter
+      - -author=MrsicMarko
+    actions:
+      request_reviews:
+        users:
+          - "MrsicMarko"
+      comment:
+        message: "Auto-Assigned MrsicMarko as Reviewer to this Pull Request."
