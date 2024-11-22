@@ -22,21 +22,21 @@ export default function PowerPlantPreview({ id, name, capacity, metric3, metric2
     <Link
       href={previewHref ?? `/power-plants/${id}`}
       role='listitem'
-      className='p-4 dark:bg-neutral-700/50 shadow-neutral-900 shadow-md rounded-md flex flex-col gap-8 dark:hover:bg-neutral-700 hover:cursor-pointer'>
+      className='p-4 dark:bg-neutral-700/50 bg-neutral-200 shadow-neutral-400 dark:shadow-neutral-900 shadow-md rounded-md flex flex-col gap-8 hover:bg-neutral-400/40 dark:hover:bg-neutral-700 hover:cursor-pointer'>
       <div className='flex justify-between items-center '>
         <h3 className='text-lg font-semibold'>{name}</h3>
-        <span className='w-12 text-center tabular-nums p-2 rounded-md rounded-bl-[40%] dark:bg-blue-600/30'>#{id}</span>
+        <span className='w-12 text-center tabular-nums p-2 rounded-md rounded-bl-[40%] bg-blue-300/30 dark:bg-blue-600/30'>#{id}</span>
       </div>
       <PowerPlantPreviewIcon className='size-20' />
       <div className='flex justify-evenly mb-2'>
         <MetricColorization value={capacity}>
-          <TemperatureSvg className='size-7 dark:fill-neutral-200' />
+          <TemperatureSvg className='size-7 dark:fill-neutral-200 fill-neutral-600' />
         </MetricColorization>
         <MetricColorization value={metric2}>
-          <RpmSvg className='size-7 dark:fill-neutral-300' />
+          <RpmSvg className='size-7 dark:fill-neutral-300 fill-neutral-600' />
         </MetricColorization>
         <MetricColorization value={metric3}>
-          <WaterLevelSvg className='size-7 dark:fill-neutral-300' />
+          <WaterLevelSvg className='size-7 dark:fill-neutral-300 fill-neutral-600' />
         </MetricColorization>
       </div>
     </Link>
