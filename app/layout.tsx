@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge'
 import { MainContentShiftBreakpoints } from '@/config/SideBarConfig'
 import React from 'react'
 import AuthProvider from '@/components/root/AuthProvider'
+import getColorMode from '@/lib/getColorMode'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,8 +17,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const colorMode = getColorMode()
+
   return (
-    <html lang='en' className='dark'>
+    <html lang='en' className={twMerge('', colorMode)}>
       <body className={`bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-200`}>
         <SideBar />
         <AuthProvider>
