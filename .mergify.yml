@@ -62,3 +62,11 @@ pull_request_rules:
           - "MrsicMarko"
       comment:
         message: "Auto-Assigned MrsicMarko as Reviewer to this Pull Request."
+
+  - name: Auto-Assign Pull request author to Pull request
+    conditions:
+      - "#files > 1"
+    actions:
+      assign:
+        add_users:
+          - "{{ author }}"
