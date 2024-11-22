@@ -20,6 +20,7 @@ pull_request_rules:
   - name: Manual merge when Auto-Reviewed
     conditions:
       - approved-reviews-by=Harvey-Reginald-Specter
+      - -label=manual-merge
     actions:
       label:
         add:
