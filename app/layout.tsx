@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='dark'>
       <body className={`bg-gray-100 dark:bg-neutral-800 text-gray-700 dark:text-gray-200`}>
         <SideBar />
         <AuthProvider>
