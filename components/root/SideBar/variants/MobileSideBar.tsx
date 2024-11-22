@@ -4,13 +4,14 @@
 import React, { createContext, Fragment, Suspense, useContext, useState } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { MobileSideBarVisibilityBreakpoints } from '@/config/SideBarConfig'
-import { BoltIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { BoltIcon } from '@heroicons/react/24/outline'
 import SideBarProps from '@/typings/root/SideBarProps'
 import useHeroIcon from '@/hooks/useHeroIcon'
 import { Dialog, Transition } from '@headlessui/react'
 import { RenderSideBarItems } from '@/components/root/SideBar'
 import { LoadingProfileInformation } from '@/components/root/UserProfile/LoadingUserInformation'
 import UserProfile from '@/components/root/UserProfile/UserProfie'
+import ColorModeSwitcher from '@/components/root/ColorModeSwitcher'
 
 interface MobileSideBarContextProps {
   isOpen: boolean
@@ -33,7 +34,7 @@ export default function MobileSideBar(props: SideBarProps) {
       <div id='mobile-sidebar-top-bar' className={twMerge('bg-gray-50 dark:bg-neutral-900 p-4 border-b-2 justify-between', MobileSideBarVisibilityBreakpoints)}>
         <OpenCloseButton />
         <h3 className='flex-1 text-center text-lg font-semibold leading-6 text-gray-700 dark:text-gray-200'>{props.title}</h3>
-        <MoonIcon className='size-6' />
+        <ColorModeSwitcher />
       </div>
 
       <MobileSideBarDialog>
