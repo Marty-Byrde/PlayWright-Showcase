@@ -8,6 +8,23 @@ import useHeroIcon from '@/hooks/useHeroIcon'
 import { twMerge } from 'tailwind-merge'
 
 export default function ColorModeSwitcher() {
+  const { mode, toggleMode } = ColorModeHandler()
+  const Icon = useHeroIcon({ iconName: mode === 'light' ? 'SunIcon' : 'MoonIcon', type: 'solid' })
+
+  return (
+    <div className='hover:cursor-pointer' onClick={toggleMode}>
+      <Transition show={mode === 'light'} enter='transition duration-300' enterFrom='rotate-45 opacity-50' enterTo='rotate-0 opacity-100' leave='hidden'>
+        <Icon className={twMerge('size-6', mode === 'dark' && 'hidden')} />
+      </Transition>
+
+      <Transition show={mode === 'dark'} enter='transition duration-300' enterFrom='-rotate-45 opacity-50' enterTo='rotate-0 opacity-100' leave='hidden'>
+        <Icon className={twMerge('size-6', mode === 'light' && 'hidden')} />
+      </Transition>
+    </div>
+  )
+}
+
+function ColorModeHandler() {
   const [mode, setMode] = useState<'light' | 'dark' | undefined>()
   const toggleMode = () => setMode(mode === 'light' ? 'dark' : 'light')
 
@@ -39,17 +56,5 @@ export default function ColorModeSwitcher() {
     setMode(colorMode === 'light' ? 'light' : 'dark')
   }, [])
 
-  const Icon = useHeroIcon({ iconName: mode === 'light' ? 'SunIcon' : 'MoonIcon', type: 'solid' })
-
-  return (
-    <div className='hover:cursor-pointer' onClick={toggleMode}>
-      <Transition show={mode === 'light'} enter='transition duration-300' enterFrom='rotate-45 opacity-50' enterTo='rotate-0 opacity-100' leave='hidden'>
-        <Icon className={twMerge('size-6', mode === 'dark' && 'hidden')} />
-      </Transition>
-
-      <Transition show={mode === 'dark'} enter='transition duration-300' enterFrom='-rotate-45 opacity-50' enterTo='rotate-0 opacity-100' leave='hidden'>
-        <Icon className={twMerge('size-6', mode === 'light' && 'hidden')} />
-      </Transition>
-    </div>
-  )
+  return { mode, toggleMode }
 }
