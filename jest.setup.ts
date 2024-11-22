@@ -15,3 +15,9 @@ jest.mock('./lib/getSession', () => ({
   __esModule: true, // Indicates that the module uses ES modules
   default: jest.fn(), // Mock the default export as a Jest mock function
 }))
+
+//? Mocking the ColorModeSwitcher component because Jest does not recognize the window.match function and thus cannot properly render the component
+jest.mock('./components/root/ColorModeSwitcher', () => ({
+  __esModule: true, // Indicates that the module uses ES modules
+  default: jest.fn(), // Mock the default export as a Jest mock function
+}))
