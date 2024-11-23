@@ -5,30 +5,18 @@ export const SideBarConfiguration: SideBarProps = {
   iconName: 'PowerIcon',
   items: [
     {
-      title: 'Dashboard',
-      href: '/item1',
-      iconName: 'ChartPieIcon',
-      items: [
-        {
-          title: 'Power Consumption',
-          href: '/subitem1',
-          iconName: 'PowerIcon',
-        },
-        {
-          title: 'RPM History',
-          href: '/subitem1',
-          iconName: 'LifebuoyIcon',
-        },
-        {
-          title: 'Weather Data',
-          href: '/subitem1',
-          iconName: 'SparklesIcon',
-        },
-      ],
+      title: 'Home',
+      href: '/',
+      iconName: 'HomeIcon',
     },
     {
-      title: 'Control Room',
-      href: '/item2',
+      title: 'Available Plants',
+      href: '/power-plants',
+      iconName: 'ListBulletIcon',
+    },
+    {
+      title: 'Manage Plants',
+      href: '/power-plants/manage',
       iconName: 'WrenchScrewdriverIcon',
     },
   ],
