@@ -44,11 +44,6 @@
     "@eslint/js": "^9.14.0",
     "@next/eslint-plugin-next": "^15.0.3",
     "@playwright/test": "^1.48.2",
-    "@semantic-release/commit-analyzer": "^13.0.0",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
-    "@semantic-release/npm": "^12.0.1",
-    "@semantic-release/release-notes-generator": "^14.0.1",
     "@types/jest": "^29.5.14",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -68,7 +63,6 @@
     "lint-staged": "^15.2.10",
     "postcss": "^8",
     "prettier": "^3.3.3",
-    "semantic-release": "^24.2.0",
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5"
@@ -89,24 +83,5 @@
       "prettier --write",
       "eslint --fix"
     ]
-  },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/github",
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "package.json"
-          ],
-          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-        }
-      ]
-    ]
-  },
-  "branches": [
-    "main"
-  ]
+  }
 }
