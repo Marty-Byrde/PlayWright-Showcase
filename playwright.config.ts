@@ -1,36 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
 
-import { CoverageReportOptions } from 'monocart-reporter'
-
-const outputDir = 'playwright-coverage'
-
-const coverageReportOptions: CoverageReportOptions = {
-  // logging: 'debug',
-  name: 'Next.js Coverage Report',
-  outputDir: `${outputDir}/coverage`,
-
-  entryFilter: (entry) => {
-    // both client side and server side
-    return entry.url.includes('next/static/chunks') || entry.url.includes('next/server/app')
-  },
-
-  sourceFilter: (sourcePath) => {
-    return sourcePath.includes('src/app')
-  },
-
-  sourcePath: (fileSource) => {
-    const list = ['_N_E/', 'nextjs-with-playwright/']
-    for (const pre of list) {
-      if (fileSource.startsWith(pre)) {
-        return fileSource.slice(pre.length)
-      }
-    }
-    return fileSource
-  },
-
-  reports: ['lcov', 'console-details'],
-}
-
 // Use process.env.PORT by default and fallback to port 3000
 const PORT = process.env.PORT || 3000
 
@@ -40,14 +9,14 @@ const baseURL = `http://localhost:${PORT}`
 // Reference: https://playwright.dev/docs/test-configuration
 export default defineConfig({
   // Timeout per test
-  timeout: 30 * 1000,
+  timeout: 10 * 1000,
+  workers: '50%',
   // Test directory
   testDir: './tests/playwright',
   // If a test fails, retry it additional 2 times
-  retries: 2,
+  retries: 0,
   // Artifacts folder where screenshots, videos, and traces are stored.
   outputDir: 'tests/playwright-test-artifacts/',
-
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
@@ -59,32 +28,12 @@ export default defineConfig({
     reuseExistingServer: !process.env.CI,
   },
 
-  globalTeardown: './global-teardown.js',
-
-  reporter: [
-    ['list'],
-    [
-      'monocart-reporter',
-      {
-        coverage: coverageReportOptions,
-        outputFile: `${outputDir}/index.html`,
-      },
-    ],
-  ],
+  reporter: [['list'], ['monocart-reporter', {}]],
 
   use: {
-    // Use baseURL so to make navigations relative.
-    // More information: https://playwright.dev/docs/api/class-testoptions#test-options-base-url
     baseURL,
-
-    // Retry a test if its failing with enabled tracing. This allows you to analyze the DOM, console logs, network traffic etc.
-    // More information: https://playwright.dev/docs/trace-viewer
     trace: 'retry-with-trace',
-
-    // All available context options: https://playwright.dev/docs/api/class-browser#browser-new-context
-    // contextOptions: {
-    //   ignoreHTTPSErrors: true,
-    // },
+    // headless: false,
   },
 
   projects: [
@@ -94,12 +43,12 @@ export default defineConfig({
         ...devices['Desktop Chrome'],
       },
     },
-    // {
-    //   name: 'Desktop Firefox',
-    //   use: {
-    //     ...devices['Desktop Firefox'],
-    //   },
-    // },
+    {
+      name: 'Desktop Firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    },
     // {
     //   name: 'Desktop Safari',
     //   use: {
@@ -107,12 +56,12 @@ export default defineConfig({
     //   },
     // },
     // Test against mobile viewports.
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: {
+        ...devices['Pixel 5'],
+      },
+    },
     // {
     //   name: 'Mobile Safari',
     //   use: devices['iPhone 12'],
