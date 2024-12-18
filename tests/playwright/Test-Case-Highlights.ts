@@ -2,8 +2,8 @@ import { test, ViewportSize } from '@playwright/test'
 import { Breakpoints } from '@/tests/helpers/TailwindConfig'
 import { describe } from 'node:test'
 
-const isDesktop = (viewport: ViewportSize | null) => viewport?.width > Breakpoints['md']
-const isMobile = (viewport: ViewportSize | null) => viewport?.width <= Breakpoints['md']
+const isDesktop = (viewport: ViewportSize | null) => (viewport?.width ? viewport.width > Breakpoints['md'] : false)
+const isMobile = (viewport: ViewportSize | null) => (viewport?.width ? viewport.width <= Breakpoints['md'] : false)
 
 //? Define Fixures for Test Suite (optional)
 test.use({
