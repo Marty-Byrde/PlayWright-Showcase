@@ -57,9 +57,15 @@ export default defineConfig({
     // },
     // Test against mobile viewports.
     {
-      name: 'Mobile Chrome',
+      name: 'Mobile Pixel 5',
       use: {
         ...devices['Pixel 5'],
+      },
+    },
+    {
+      name: 'Mobile Nexus 7',
+      use: {
+        ...devices['Nexus 7 landscape'],
       },
     },
     // {

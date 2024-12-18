@@ -21,7 +21,6 @@
     "semi": ["warn", "never"],
     "react/no-unstable-nested-components": ["error", { "allowAsProps": true }],
     "react/jsx-max-depth": ["error", { "max": 5 }],
-    "react/no-multi-comp": "warn",
     "react/button-has-type": "error"
   }
 }
