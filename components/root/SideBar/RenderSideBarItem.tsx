@@ -26,7 +26,7 @@ export function RenderSideBarItem(props: SideBarElementProps) {
  */
 function SideBarItem_NoSubItems(props: SideBarElementProps) {
   return (
-    <li>
+    <li className='sidebar-item'>
       <Link href={props.href ?? '#'} className='group flex gap-x-3 p-2 items-center font-semibold hover:bg-gray-50 dark:hover:bg-gray-700/40 rounded-md '>
         <SideBarItem {...props} />
       </Link>
