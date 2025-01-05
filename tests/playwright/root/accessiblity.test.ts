@@ -31,3 +31,8 @@ test.describe('homepage accessiblity', () => {
       expect(accessibilityScanResults.violations).toEqual([]); 
     });
   });*/
+
+// install: npx playwright install
+// run tests: npx playwright test
+// run tests with trace: npx playwright test --trace on
+// screen reader: https://www.nvaccess.org/download/
